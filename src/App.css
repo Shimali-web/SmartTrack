@@ -45,6 +45,36 @@ html, body, #root {
 .navbar {
   border-bottom: 3px solid #ddd;
 }
+body[data-theme="dark"] {
+  background: #181a1b !important;
+  color: #f4f6fa !important;
+}
+
+body[data-theme="dark"] .navbar,
+body[data-theme="dark"] .card-header,
+body[data-theme="dark"] footer {
+  background: #23272f !important;
+  color: #f4f6fa !important;
+}
+
+body[data-theme="dark"] .card {
+  background: #23272f !important;
+  color: #f4f6fa !important;
+  border: none;
+}
+
+body[data-theme="dark"] .btn-primary,
+body[data-theme="dark"] .btn-success,
+body[data-theme="dark"] .btn-dark {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+
+body[data-theme="dark"] .form-control {
+  background: #23272f !important;
+  color: #f4f6fa !important;
+  border: 1px solid #444;
+}
 
 /* Calendar icons */
 .react-calendar__tile {
