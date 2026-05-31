@@ -13,7 +13,15 @@ import remindersRoutes from "./routes/reminders.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://unlife-dashboard.netlify.app",
+      "http://localhost:5173"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json({ limit: "50mb" }));
 
 const MONGO = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/unlife";

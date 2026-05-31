@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { auth } from "../firebase";
 import "../App.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api`;
 
 async function apiCall(path, opts = {}) {
   const headers = opts.headers || {};

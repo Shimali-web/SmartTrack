@@ -3,7 +3,7 @@ import { auth } from "../firebase";
 import { FaFolder, FaFile, FaTrash, FaDownload, FaPlus, FaArrowLeft, FaEdit, FaEye, FaRobot } from "react-icons/fa";
 import AIModal from "./AIModal";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api`;
 
 async function apiCall(path, opts = {}) {
   const headers = opts.headers || {};
