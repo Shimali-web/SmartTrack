@@ -1,0 +1,409 @@
+:root {
+  --primary-bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --header-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+  --accent-color: #2563eb;
+  --navbar-bg: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  --card-border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body[data-theme="purple"] {
+  --primary-bg: #f5f3ff;
+  --card-bg: #ffffff;
+  --header-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --text-color: #1e1b4b;
+  --text-muted: #4338ca;
+  --accent-color: #7c3aed;
+  --navbar-bg: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --card-border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+body[data-theme="dark"] {
+  --primary-bg: #000000;
+  --card-bg: rgba(18, 18, 18, 0.8);
+  --header-gradient: linear-gradient(135deg, #222 0%, #000 100%);
+  --text-color: #ffffff;
+  --text-muted: #d0d0d0;
+  --accent-color: #ffffff;
+  --navbar-bg: rgba(0, 0, 0, 0.85);
+  --card-border: 1px solid rgba(255, 255, 255, 0.15);
+  --card-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
+}
+
+body[data-theme="skyblue"] {
+  --primary-bg: #f0f9ff;
+  --card-bg: #ffffff;
+  --header-gradient: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+  --text-color: #0c4a6e;
+  --text-muted: #0369a1;
+  --accent-color: #0ea5e9;
+  --navbar-bg: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+  --card-border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+body[data-theme="neon"] {
+  --primary-bg: #0a0a0a;
+  --card-bg: #000000;
+  --header-gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
+  --text-color: #39ff14;
+  --text-muted: #00ff41;
+  --accent-color: #39ff14;
+  --navbar-bg: #000000;
+  --card-border: 2px solid #39ff14;
+  --card-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+}
+
+body[data-theme="glossy"] {
+  --primary-bg: #020617;
+  --card-bg: rgba(15, 23, 42, 0.8);
+  --header-gradient: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #38bdf8;
+  --navbar-bg: rgba(2, 6, 23, 0.9);
+  --card-border: 1px solid rgba(56, 189, 248, 0.3);
+  --card-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+}
+
+/* General layout */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 600;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+.btn-link.nav-link {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* Navbar background */
+.navbar {
+  border-bottom: 3px solid rgba(0,0,0,0.08);
+  background: var(--navbar-bg) !important;
+  transition: all 0.3s ease;
+}
+
+/* Card styles */
+.card {
+  border-radius: 1.5rem !important;
+  border: var(--card-border) !important;
+  box-shadow: var(--card-shadow, 0 10px 30px rgba(0,0,0,0.05)) !important;
+  transition: all 0.3s ease;
+}
+
+/* To-Do and Reminders styling */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 0.5rem;
+}
+
+/* Page-specific headers */
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Dark theme overrides */
+body[data-theme="dark"] {
+  background: radial-gradient(circle at center, #111 0%, #000 100%) !important;
+}
+
+body[data-theme="dark"] .navbar {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="dark"] .card {
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+body[data-theme="dark"] .btn {
+  color: #000000 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 600 !important;
+}
+
+body[data-theme="dark"] .btn:hover {
+  background: #f0f0f0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+body[data-theme="dark"] .btn-link {
+  background: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+body[data-theme="dark"] .form-control,
+body[data-theme="dark"] .form-select {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+body[data-theme="dark"] .form-control::placeholder,
+body[data-theme="dark"] .form-select::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+body[data-theme="dark"] .text-muted {
+  color: #b0b0b0 !important;
+}
+
+body[data-theme="dark"] .nav-link {
+  color: #ffffff !important;
+}
+
+body[data-theme="dark"] .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Calendar Theme-specific tweaks */
+body[data-theme="dark"] .react-calendar,
+body[data-theme="neon"] .react-calendar,
+body[data-theme="glossy"] .react-calendar {
+  background: transparent !important;
+  color: var(--text-color) !important;
+}
+
+body[data-theme="dark"] .react-calendar__tile,
+body[data-theme="neon"] .react-calendar__tile,
+body[data-theme="glossy"] .react-calendar__tile {
+  color: var(--text-color) !important;
+}
+
+body[data-theme="dark"] .react-calendar__navigation button,
+body[data-theme="neon"] .react-calendar__navigation button,
+body[data-theme="glossy"] .react-calendar__navigation button {
+  color: var(--text-color) !important;
+}
+
+body[data-theme="dark"] .react-calendar__tile--now {
+  background: rgba(255,255,255,0.1) !important;
+  border-radius: 8px;
+}
+
+body[data-theme="neon"] .react-calendar__tile--now {
+  background: rgba(57, 255, 20, 0.1) !important;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+  border-radius: 8px;
+}
+
+body[data-theme="glossy"] .react-calendar__tile--now {
+  background: rgba(56, 189, 248, 0.1) !important;
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+}
+
+body[data-theme="dark"] .react-calendar__tile--active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+body[data-theme="neon"] .react-calendar__tile--active {
+  background: #39ff14 !important;
+  color: #000000 !important;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+body[data-theme="glossy"] .react-calendar__tile--active {
+  background: #38bdf8 !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+body[data-theme="dark"] .react-calendar__month-view__weekdays__weekday abbr,
+body[data-theme="neon"] .react-calendar__month-view__weekdays__weekday abbr,
+body[data-theme="glossy"] .react-calendar__month-view__weekdays__weekday abbr {
+  color: var(--text-muted) !important;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+
+/* Neon theme overrides */
+body[data-theme="neon"] .text-muted {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+body[data-theme="neon"] .form-control::placeholder,
+body[data-theme="neon"] .form-select::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+body[data-theme="neon"] .card {
+  box-shadow: var(--card-shadow) !important;
+}
+
+body[data-theme="neon"] .btn-link.text-danger {
+  color: #ff3131 !important;
+  text-shadow: 0 0 5px rgba(255, 49, 49, 0.5);
+}
+
+body[data-theme="neon"] .form-control,
+body[data-theme="neon"] .form-select {
+  background: transparent !important;
+  color: var(--text-color) !important;
+}
+
+body[data-theme="neon"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(100%) saturate(10000%) hue-rotate(50deg) brightness(1.5);
+}
+
+/* Glossy theme overrides */
+body[data-theme="glossy"] {
+  background: radial-gradient(circle at top right, #0f172a, #020617) !important;
+}
+
+body[data-theme="glossy"] .card {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="glossy"] .navbar {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="glossy"] .btn-primary,
+body[data-theme="glossy"] .btn-success {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%) !important;
+  border: none;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+body[data-theme="glossy"] .text-muted {
+  color: #94a3b8 !important;
+}
+
+body[data-theme="glossy"] .form-control,
+body[data-theme="glossy"] .form-select {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  color: #f8fafc !important;
+}
+
+body[data-theme="glossy"] .form-control::placeholder,
+body[data-theme="glossy"] .form-select::placeholder {
+  color: rgba(248, 250, 252, 0.6) !important;
+}
+
+body[data-theme="glossy"] .form-control:focus,
+body[data-theme="glossy"] .form-select:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2) !important;
+}
+
+body[data-theme="glossy"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(100%) hue-rotate(180deg) brightness(1.2);
+}
+
+/* Mobile navbar collapse */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--navbar-bg) !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 20px !important;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    margin-top: 10px;
+  }
+  .nav-item {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Footer */
+footer {
+  font-size: 0.875rem;
+}
+
+/* Animation Overrides */
+.animate__animated {
+  animation-duration: 0.75s;
+}
+
+/* Avatar utility styles */
+.avatar {
+  width: 90px;
+  height: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(155,89,182,0.18);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.avatar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(155,89,182,0.22);
+}
+.avatar--img {
+  object-fit: cover;
+  border: 3px solid #9b59b6;
+}
+.avatar--fallback {
+  font-size: 1.9rem;
+  color: #fff;
+  background: linear-gradient(135deg, #9b59b6 60%, #b084cc 100%);
+  border: 3px solid #9b59b6;
+}
