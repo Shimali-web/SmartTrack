@@ -13,13 +13,19 @@ import remindersRoutes from "./routes/reminders.js";
 dotenv.config();
 
 const app = express();
+const hasGeminiKey = !!process.env.GEMINI_API_KEY;
+console.log(`GEMINI_API_KEY loaded: ${hasGeminiKey}`);
+
+
 app.use(
   cors({
     origin: [
       "https://smart-trackai.netlify.app",
       "http://localhost:5173"
     ],
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 app.use(express.json({ limit: "50mb" }));
