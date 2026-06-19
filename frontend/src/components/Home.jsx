@@ -1,74 +1,147 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center text-center w-100 h-100 p-5" style={{ minHeight: "100vh", background: "var(--primary-bg)", color: "var(--text-color)" }}>
-      <div className="animate__animated animate__fadeInDown mb-4">
-        
-        <h1 className="display-4 fw-bold" style={{ color: "var(--accent-color)" }}>Welcome to SmartTrack Dashboard</h1>
-        <p className="lead" style={{ color: "var(--text-muted)" }}>Organize your university life smartly.</p>
-      </div>
-      <div className="row justify-content-center gap-4 mb-4">
-        <div className="card shadow-sm p-3 border-0" style={{ width: 220, background: "var(--card-bg)", color: "var(--text-color)", borderRadius: 16 }}>
-          <div className="mb-2" style={{ fontSize: "2.5rem" }}>🧠</div>
-          <h5 className="fw-bold" style={{ color: "var(--accent-color)" }}>Study Planner</h5>
-          <p className="small" style={{ color: "var(--text-muted)" }}>Generate AI-powered study schedules.</p>
-          <Link to="/profile" className="btn btn-sm rounded-pill w-100 shadow-sm" style={{ background: "var(--accent-color)" }}>Plan Now</Link>
-        </div>
-        <div className="card shadow-sm p-3 border-0" style={{ width: 220, background: "var(--card-bg)", color: "var(--text-color)", borderRadius: 16 }}>
-          <div className="mb-2" style={{ fontSize: "2.5rem", color: "var(--accent-color)" }}>📝</div>
-          <h5 className="fw-bold" style={{ color: "var(--accent-color)" }}>To-Do List</h5>
-          <p className="small" style={{ color: "var(--text-muted)" }}>Track your tasks and stay productive.</p>
-          <Link to="/todo" className="btn btn-sm rounded-pill w-100 shadow-sm" style={{ background: "var(--accent-color)" }}>Go to To-Do</Link>
-        </div>
-        <div className="card shadow-sm p-3 border-0" style={{ width: 220, background: "var(--card-bg)", color: "var(--text-color)", borderRadius: 16 }}>
-          <div className="mb-2" style={{ fontSize: "2.5rem", color: "var(--accent-color)" }}>📅</div>
-          <h5 className="fw-bold" style={{ color: "var(--accent-color)" }}>Calendar</h5>
-          <p className="small" style={{ color: "var(--text-muted)" }}>View and manage your schedule.</p>
-          <Link to="/calendar" className="btn btn-sm rounded-pill w-100 shadow-sm" style={{ background: "var(--accent-color)" }}>Go to Calendar</Link>
-        </div>
-        <div className="card shadow-sm p-3 border-0" style={{ width: 220, background: "var(--card-bg)", color: "var(--text-color)", borderRadius: 16 }}>
-          <div className="mb-2" style={{ fontSize: "2.5rem", color: "var(--accent-color)" }}>🗒️</div>
-          <h5 className="fw-bold" style={{ color: "var(--accent-color)" }}>Notes</h5>
-          <p className="small" style={{ color: "var(--text-muted)" }}>Create notes and manage files.</p>
-          <Link to="/notes" className="btn btn-sm rounded-pill w-100 shadow-sm" style={{ background: "var(--accent-color)" }}>Go to Notes</Link>
-        </div>
-      </div>
+    <main className="home-page" role="main">
+      <section id="hero" className="hero-panel" aria-labelledby="hero-heading">
+        <div className="container hero-grid">
+          <div className="hero-copy animate__animated animate__fadeInUp">
+            <span className="eyebrow">AI-powered student success platform</span>
+            <h1 id="hero-heading" className="hero-headline">SmartTrack helps students stay organized, focused, and ahead.</h1>
+            <p className="hero-subtitle">A professional dashboard for planning study sessions, tracking assignments, managing notes, and using AI to power your learning workflow.</p>
+            <div className="hero-actions">
+              <Link to="/profile" className="btn primary-cta">Start your free plan</Link>
+              <a href="#features" className="btn secondary-cta">Explore features</a>
+            </div>
+            <div className="hero-badges" aria-label="Trusted by indicators">
+              <div className="badge-pill">Trusted by 1,200+ students</div>
+              <div className="badge-pill">99.8% uptime</div>
+              <div className="badge-pill">AI-driven recommendations</div>
+            </div>
+          </div>
 
-      {/* Floating AI Assistant Icon */}
-      <Link 
-        to="/assistant" 
+          <div className="hero-panel-card animate__animated animate__fadeInRight">
+            <div className="hero-card-top">
+              <span className="hero-card-chip">New</span>
+              <span className="hero-card-status">Performance & AI</span>
+            </div>
+            <div className="hero-card-content">
+              <h2>SmartTrack Studio</h2>
+              <p>Fast access to your planner, reminders, notes, and assistant from one intelligent dashboard.</p>
+              <ul>
+                <li>Custom study timelines</li>
+                <li>Smooth workflow scheduling</li>
+                <li>Secure data sync</li>
+              </ul>
+            </div>
+            <div className="hero-card-footer">
+              <span>Built for reliability, speed, and accessibility.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="section-block" aria-labelledby="features-heading">
+        <div className="container">
+          <div className="section-header text-center mb-5">
+            <p className="section-label">Core benefits</p>
+            <h2 id="features-heading" className="section-title">Modern tools designed for focused students</h2>
+            <p className="section-lead">Boost productivity with clear study planning, smarter reminders, and AI-assisted note management.</p>
+          </div>
+          <div className="feature-grid">
+            <article className="feature-card animate__animated animate__fadeInUp">
+              <div className="feature-icon">🧠</div>
+              <h3>AI Study Planning</h3>
+              <p>Create adaptive plans that respond to your schedule, course load, and exam dates.</p>
+            </article>
+            <article className="feature-card animate__animated animate__fadeInUp animate__delay-1s">
+              <div className="feature-icon">📝</div>
+              <h3>Smart Task Management</h3>
+              <p>Track deadlines, prioritize assignments, and stay on top of important milestones.</p>
+            </article>
+            <article className="feature-card animate__animated animate__fadeInUp animate__delay-2s">
+              <div className="feature-icon">📚</div>
+              <h3>Notes & Resources</h3>
+              <p>Organize notes, attach files, and access study materials in one polished workspace.</p>
+            </article>
+            <article className="feature-card animate__animated animate__fadeInUp animate__delay-3s">
+              <div className="feature-icon">🤖</div>
+              <h3>AI Assistant</h3>
+              <p>Get instant support for study ideas, summaries, reminders, and productivity prompts.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline" className="section-block section-alt" aria-labelledby="timeline-heading">
+        <div className="container">
+          <div className="section-header text-center mb-5">
+            <p className="section-label">How it works</p>
+            <h2 id="timeline-heading" className="section-title">From planning to achievement</h2>
+          </div>
+          <div className="timeline">
+            <div className="timeline-item animate__animated animate__fadeInLeft">
+              <span className="timeline-step">1</span>
+              <div>
+                <h3>Set your priorities</h3>
+                <p>Capture courses, assignments, exams, and goals with a single intelligent workflow.</p>
+              </div>
+            </div>
+            <div className="timeline-item animate__animated animate__fadeInUp">
+              <span className="timeline-step">2</span>
+              <div>
+                <h3>Plan smarter</h3>
+                <p>Generate study schedules, reminders, and progress milestones using AI insights.</p>
+              </div>
+            </div>
+            <div className="timeline-item animate__animated animate__fadeInRight">
+              <span className="timeline-step">3</span>
+              <div>
+                <h3>Execute with confidence</h3>
+                <p>Stay on track with notifications, a visual calendar, and trusted analytics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trust" className="section-block" aria-labelledby="trust-heading">
+        <div className="container">
+          <div className="section-header text-center mb-5">
+            <p className="section-label">Trusted and reliable</p>
+            <h2 id="trust-heading" className="section-title">Designed for ambitious students who need dependable tools</h2>
+          </div>
+          <div className="trust-grid">
+            <div className="trust-card animate__animated animate__fadeInUp">
+              <strong>99.9% uptime</strong>
+              <p>Fast, reliable performance even during heavy study periods.</p>
+            </div>
+            <div className="trust-card animate__animated animate__fadeInUp animate__delay-1s">
+              <strong>Secure by design</strong>
+              <p>Data-first privacy and secure storage for your study plans and notes.</p>
+            </div>
+            <div className="trust-card animate__animated animate__fadeInUp animate__delay-2s">
+              <strong>Student-focused</strong>
+              <p>Built to support daily routines, exam prep, and life balance.</p>
+            </div>
+            <div className="trust-card animate__animated animate__fadeInUp animate__delay-3s">
+              <strong>Expert workflow</strong>
+              <p>Modern design and productive interactions keep every session efficient.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Link
+        to="/assistant"
         className="position-fixed bottom-0 end-0 m-4 shadow-lg d-flex align-items-center justify-content-center transition-all assistant-float"
-        style={{ 
-          width: 70, height: 70, 
-          background: "var(--header-gradient)", 
-          borderRadius: "50%", 
-          zIndex: 1000, 
-          fontSize: "2rem",
-          textDecoration: "none",
-          border: "2px solid rgba(255,255,255,0.3)"
-        }}
+        aria-label="Open AI Assistant"
         title="Chat with AI Assistant"
       >
         🤖
       </Link>
-
-      <style>
-        {`
-          .assistant-float:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3) !important;
-          }
-          @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-          }
-          .assistant-float {
-            animation: bounce 3s infinite ease-in-out;
-          }
-        `}
-      </style>
-    </div>
+    </main>
   );
 }
+
 export default Home;

@@ -6,6 +6,10 @@ const router = express.Router();
 // 🔹 Helper function
 async function callGemini(prompt, base64Image = null, mimeType = "image/jpeg") {
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  if (!GEMINI_API_KEY) {
+    throw new Error("Missing GEMINI_API_KEY environment variable in backend deployment.");
+  }
+
   // Using gemini-flash-latest as it supports multimodal and is fast
   const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
 
@@ -20,9 +24,16 @@ async function callGemini(prompt, base64Image = null, mimeType = "image/jpeg") {
       });
     }
 
-    const response = await axios.post(GEMINI_URL, {
-      contents: [{ parts }]
-    });
+    const response = await axios.post(
+      GEMINI_URL,
+      {
+        contents: [{ parts }],
+        temperature: 0.2,
+        maxOutputTokens: 512,
+        candidateCount: 1
+      },
+      { timeout: 30000 }
+    );
 
     if (response.data && response.data.candidates && response.data.candidates[0].content) {
       let text = response.data.candidates[0].content.parts[0].text;
